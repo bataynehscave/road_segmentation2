@@ -2,9 +2,10 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 from torchvision import models
+from configs import Config
 
 class DinkNet34(nn.Module):
-    def __init__(self, num_classes=1):
+    def __init__(self, num_classes=Config.num_classes):
         super().__init__()
         resnet = models.resnet34(pretrained=True)
         

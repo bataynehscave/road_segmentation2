@@ -2,6 +2,7 @@ import torch
 from torch.utils.data import DataLoader
 from tqdm import tqdm
 from models.metrics import dice_score
+import configs.defaults as Config
 
 class Trainer:
     def __init__(self, model, train_loader, val_loader, optimizer, criterion, device, config):
@@ -65,5 +66,5 @@ class Trainer:
             
         return metrics
 
-    def save_model(self, path="best_model.pth"):
+    def save_model(self, path=f"{Config.model_name}_best_model.pth"):
         torch.save(self.model.state_dict(), path)
